@@ -11,6 +11,7 @@ public class Book {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+
     private String title;
     private String isbn;
 
@@ -21,7 +22,7 @@ public class Book {
 
     @ManyToMany
     @JoinTable(name = "publisher_book", joinColumns = @JoinColumn(name = "book_id"),
-    inverseJoinColumns = @JoinColumn(name = "publisher_id"))
+            inverseJoinColumns = @JoinColumn(name = "publisher_id"))
     private Set<Publisher> publishers = new HashSet<>();
 
 
@@ -81,6 +82,7 @@ public class Book {
                 ", title='" + title + '\'' +
                 ", isbn='" + isbn + '\'' +
                 ", authors=" + authors +
+                ", publishers=" + publishers +
                 '}';
     }
 
